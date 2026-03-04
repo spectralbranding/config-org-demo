@@ -1,0 +1,112 @@
+version: 1.0.0
+id: friedrichshain
+name: "Spectra Coffee Friedrichshain"
+
+description: >
+  Second location fork demonstrating TDD cascade portability.
+  The test suite (L0 Customer Experience Contract, L1 Signal Requirements,
+  L2 Process Contracts) is IDENTICAL to the flagship location. Only
+  L3-L5 (procedures, inputs, sourcing) differ. This proves that config-org
+  specs are forkable: copy the tests, rewrite the implementation.
+
+# What stays identical (L0-L2):
+# - perception/customer_experience_contract.yaml (same acceptance tests)
+# - perception/signal_requirements.yaml (same integration tests)
+# - processes/*.yaml contracts (same quality gates)
+# - compliance/*.yaml (same regulatory requirements)
+
+# What changes (L3-L5): 6 parameter overrides
+fork_level: L5  # fork at sourcing/infrastructure layer
+
+base: locations/flagship  # inherits everything not overridden
+
+overrides:
+
+  # 1. Location
+  - path: organization.yaml:locations
+    override:
+      - id: friedrichshain
+        address: "17 Boxhagener Str., Berlin, DE"
+        timezone: Europe/Berlin
+        hours:
+          weekday: "07:30-21:00"  # later close (Friedrichshain nightlife area)
+          weekend: "09:00-21:00"  # later open + later close
+    rationale: >
+      Friedrichshain is a younger, nightlife-oriented neighborhood.
+      Extended evening hours capture post-dinner foot traffic.
+      Later weekend opening reflects local rhythm.
+
+  # 2. Milk supplier (local sourcing)
+  - path: products/cappuccino.yaml:ingredients.whole_milk.supplier
+    override:
+      name: Hemme Milch GmbH
+      country: Germany
+      region: Brandenburg
+    rationale: >
+      Different local dairy supplier. Same quality spec (3.5% fat,
+      cost_per_liter EUR 1.84). Contract (L2) unchanged — any supplier
+      meeting the spec passes the test.
+
+  # 3. Bakery supplier (proximity)
+  - path: products/croissant.yaml:ingredients.croissant_par_baked.supplier
+    override:
+      name: "Albatross Bakery GmbH"
+      country: Germany
+    rationale: >
+      Closer bakery for Friedrichshain delivery logistics.
+      Same spec (par-baked, 70g, European butter). Contract unchanged.
+
+  # 4. Filter grinder model
+  - path: processes/equipment_maintenance.yaml:equipment.filter_grinder
+    override:
+      model: "Mahlkonig EK43S"
+      note: "Different grinder model, same particle size spec (750-1000um)"
+    rationale: >
+      Equipment choice is L4 (dependencies). The quality gate
+      (particle_size_um: 750-1000) is the contract; which grinder
+      achieves it is the implementation.
+
+  # 5. Staffing structure
+  - path: organization.yaml:roles
+    override:
+      - barista
+      - shift_lead
+      - manager
+      - evening_barista  # additional role for extended hours
+    rationale: >
+      Extended hours require an evening shift role. The process
+      contracts (quality gates, procedures) are the same — the
+      staffing implementation differs.
+
+  # 6. Display case configuration
+  - path: brand/identity.yaml:environment.display_case
+    override:
+      type: "wall-mounted_glass"
+      capacity_items: 18
+      note: "Smaller footprint than flagship, wall-mounted to save floor space"
+    rationale: >
+      Friedrichshain location has less floor space. Display case
+      spec changes but the food safety contract (max 8h display,
+      discard policy) is identical.
+
+# What this proves:
+proof:
+  thesis: >
+    Forkability = test suite portability. The same L0-L2 test suite
+    validates both locations. Only the implementation details (L3-L5)
+    change. This is structurally identical to software TDD: the tests
+    don't change when you refactor the implementation.
+  executor_invariant_pct: 75
+  files_unchanged:
+    - perception/customer_experience_contract.yaml
+    - perception/signal_requirements.yaml
+    - perception/spectral_profile.yaml
+    - perception/cohort_analysis.yaml
+    - processes/quality_control.yaml  # contracts, not procedures
+    - processes/internal_communications.yaml
+    - compliance/food_safety.yaml
+    - compliance/allergen_management.yaml
+    - signals/signal-map.yaml
+    - signals/observer-profiles.yaml
+  files_overridden: 6
+  override_ratio: "6 parameters changed out of ~2,000+ total spec parameters"
