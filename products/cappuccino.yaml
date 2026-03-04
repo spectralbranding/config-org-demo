@@ -38,7 +38,7 @@ ingredients:
   - id: espresso
     reference: products/espresso.yaml
     quantity_per_serving_ml: 36
-    cost_per_serving: 0.42
+    cost_per_serving: 0.39
 
   - id: whole_milk
     name: Whole Cow's Milk (3.5% fat)
@@ -47,8 +47,8 @@ ingredients:
       name: Milchwerke Berlin GmbH
       country: Germany
     quantity_per_serving_ml: 120
-    cost_per_liter: 2.00
-    cost_per_serving: 0.24
+    cost_per_liter: 1.84
+    cost_per_serving: 0.22
     nutrition_per_100ml:
       energy_kcal: 64
       fat_g: 3.3
@@ -92,30 +92,30 @@ allergens:
 
 cost:
   ingredients:
-    espresso: 0.42
-    whole_milk: 0.24
+    espresso: 0.39
+    whole_milk: 0.22
   consumables:
-    cup: 0.12  # ceramic cup amortized wash cost
-  total_cogs: 0.78
-  currency: USD
+    cup: 0.11  # ceramic cup amortized wash cost
+  total_cogs: 0.72
+  currency: EUR
 
 pricing:
-  price: 4.50
-  currency: USD
-  margin_pct: 82.7
+  price: 4.20
+  currency: EUR
+  margin_pct: 82.9
 
 modifiers:
   - id: add_shot
     description: Add extra espresso shot (18g/36ml)
-    price_adjustment: 1.50
+    price_adjustment: 1.40
     nutrition_adjustment:
       energy_kcal: 2
       caffeine_mg: 63
-    cogs_adjustment: 0.42
+    cogs_adjustment: 0.39
 
   - id: oat_milk
     description: Swap whole milk for Oatly Barista oat milk
-    price_adjustment: 0.50
+    price_adjustment: 0.46
     ingredient_swap:
       remove: whole_milk
       add: oat_milk

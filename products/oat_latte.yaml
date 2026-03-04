@@ -44,7 +44,7 @@ ingredients:
   - id: espresso
     reference: products/espresso.yaml
     quantity_per_serving_ml: 36
-    cost_per_serving: 0.42
+    cost_per_serving: 0.39
 
   - id: oat_milk
     name: Oatly Barista Edition
@@ -53,8 +53,8 @@ ingredients:
       name: Oatly AB
       country: Sweden
     quantity_per_serving_ml: 240
-    cost_per_liter: 4.00
-    cost_per_serving: 0.96
+    cost_per_liter: 3.68
+    cost_per_serving: 0.88
     nutrition_per_100ml:
       energy_kcal: 59
       fat_g: 2.8
@@ -72,8 +72,8 @@ ingredients:
       name: Monin SAS
       country: France
     quantity_per_serving_ml: 10
-    cost_per_liter: 8.00
-    cost_per_serving: 0.08
+    cost_per_liter: 7.36
+    cost_per_serving: 0.07
     nutrition_per_100ml:
       energy_kcal: 340
       fat_g: 0.0
@@ -119,31 +119,31 @@ allergens:
 
 cost:
   ingredients:
-    espresso: 0.42
-    oat_milk: 0.96
-    vanilla_syrup: 0.08
+    espresso: 0.39
+    oat_milk: 0.88
+    vanilla_syrup: 0.07
   consumables:
-    cup: 0.15
-  total_cogs: 1.61
-  currency: USD
+    cup: 0.14
+  total_cogs: 1.48
+  currency: EUR
 
 pricing:
-  price: 5.50
-  currency: USD
-  margin_pct: 70.7
+  price: 5.00
+  currency: EUR
+  margin_pct: 70.4
 
 modifiers:
   - id: add_shot
     description: Add extra espresso shot (18g/36ml)
-    price_adjustment: 1.50
+    price_adjustment: 1.40
     nutrition_adjustment:
       energy_kcal: 2
       caffeine_mg: 63
-    cogs_adjustment: 0.42
+    cogs_adjustment: 0.39
 
   - id: regular_milk
     description: Swap oat milk for whole cow's milk
-    price_adjustment: -0.50
+    price_adjustment: -0.46
     ingredient_swap:
       remove: oat_milk
       add: whole_milk
@@ -178,4 +178,4 @@ modifiers:
       energy_kcal: -34
       carbohydrates_g: -8.5
       sugars_g: -8.5
-    cogs_adjustment: -0.08
+    cogs_adjustment: -0.07

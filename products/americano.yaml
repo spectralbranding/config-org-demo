@@ -38,7 +38,7 @@ ingredients:
   - id: espresso
     reference: products/espresso.yaml
     quantity_per_serving_ml: 36
-    cost_per_serving: 0.42
+    cost_per_serving: 0.39
 
   - id: water
     type: filtered
@@ -75,33 +75,33 @@ allergens:
 
 cost:
   ingredients:
-    espresso: 0.42
+    espresso: 0.39
     water: 0.01
   consumables:
     cup: 0.00  # ceramic mug, in-house
-  total_cogs: 0.43
-  currency: USD
+  total_cogs: 0.40
+  currency: EUR
   notes:
-    takeaway_cup_cost: 0.12
-    takeaway_total_cogs: 0.55
+    takeaway_cup_cost: 0.11
+    takeaway_total_cogs: 0.51
 
 pricing:
-  price: 3.50
-  currency: USD
-  margin_pct: 87.7
+  price: 3.20
+  currency: EUR
+  margin_pct: 87.5
   notes:
-    takeaway_margin_pct: 84.3
+    takeaway_margin_pct: 84.1
 
 modifiers:
   - id: double
     description: Double shot (adds second 18g extraction, 72ml total espresso + 200ml water)
-    price_adjustment: 1.50
+    price_adjustment: 1.40
     nutrition_adjustment:
       energy_kcal: 2
       carbohydrates_g: 0.3
       protein_g: 0.3
       caffeine_mg: 63
-    cogs_adjustment: 0.42
+    cogs_adjustment: 0.39
 
   - id: iced
     description: Iced americano (cold water + ice cubes instead of hot water)
@@ -117,11 +117,11 @@ modifiers:
       id: ice_cubes
       type: frozen_water
       quantity_per_serving_g: 100
-      cost_per_serving: 0.02
+      cost_per_serving: 0.02  # ice is negligible cost
 
   - id: add_oat_milk
     description: Add splash of Oatly Barista oat milk (30ml)
-    price_adjustment: 0.50
+    price_adjustment: 0.46
     ingredient_add:
       id: oat_milk
       reference: products/oat_latte.yaml#ingredients.oat_milk
@@ -138,6 +138,6 @@ modifiers:
       fiber_g: 0.2
       protein_g: 0.2
       salt_g: 0.03
-    cogs_adjustment: 0.12  # 30ml at $4.00/L
+    cogs_adjustment: 0.11  # 30ml at EUR 3.68/L
     allergen_change:
       adds: [oats]

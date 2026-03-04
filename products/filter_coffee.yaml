@@ -59,8 +59,8 @@ ingredients:
       origin_certification: direct_trade
     quantity_per_batch_g: 60.0
     quantity_per_serving_g: 10.0
-    cost_per_kg: 23.00
-    cost_per_serving: 0.23
+    cost_per_kg: 21.16
+    cost_per_serving: 0.21
 
   - id: water
     type: filtered
@@ -72,7 +72,7 @@ ingredients:
   - id: paper_filter
     type: consumable
     description: Paper filter amortized across 6-serving batch
-    cost_per_batch: 0.12
+    cost_per_batch: 0.11
     cost_per_serving: 0.02
 
 nutrition:
@@ -99,28 +99,28 @@ allergens:
 
 cost:
   ingredients:
-    coffee_beans: 0.23
+    coffee_beans: 0.21
     water: 0.01
   consumables:
     filter: 0.02
     cup: 0.00  # ceramic mug, in-house
-  total_cogs: 0.26
-  currency: USD
+  total_cogs: 0.24
+  currency: EUR
   notes:
-    takeaway_cup_cost: 0.12
-    takeaway_total_cogs: 0.38
+    takeaway_cup_cost: 0.11
+    takeaway_total_cogs: 0.35
 
 pricing:
-  price: 3.50
-  currency: USD
-  margin_pct: 92.6
+  price: 3.20
+  currency: EUR
+  margin_pct: 92.5
   notes:
     takeaway_margin_pct: 89.1
 
 modifiers:
   - id: add_oat_milk
     description: Add splash of Oatly Barista oat milk (30ml)
-    price_adjustment: 0.50
+    price_adjustment: 0.46
     ingredient_add:
       id: oat_milk
       reference: products/oat_latte.yaml#ingredients.oat_milk
@@ -137,7 +137,7 @@ modifiers:
       fiber_g: 0.2
       protein_g: 0.2
       salt_g: 0.03
-    cogs_adjustment: 0.12  # 30ml at $4.00/L
+    cogs_adjustment: 0.11  # 30ml at EUR 3.68/L
     allergen_change:
       adds: [oats]
 
@@ -160,13 +160,13 @@ modifiers:
       fiber_g: 0.0
       protein_g: 1.0
       salt_g: 0.02
-    cogs_adjustment: 0.06  # 30ml at $2.00/L
+    cogs_adjustment: 0.06  # 30ml at EUR 1.84/L
     allergen_change:
       adds: [milk]
 
   - id: large
     description: Large serving (450ml, 1.5x standard)
-    price_adjustment: 1.00
+    price_adjustment: 0.92
     nutrition_adjustment:
       # 1.5x standard serving
       energy_kcal: 1
@@ -175,4 +175,4 @@ modifiers:
       sugars_g: 0.0
       protein_g: 0.2
       caffeine_mg: 48
-    cogs_adjustment: 0.12  # 5g additional coffee
+    cogs_adjustment: 0.11  # 5g additional coffee

@@ -70,7 +70,7 @@ traceability_chains:
     l5_sourcing:
       supplier: "Nordic Roasters GmbH, direct trade certified"
       delivery: "weekly, 5kg minimum"
-      cost_per_kg: 23.00
+      cost_per_kg: 21.16
     l5_satisfies_l4: >
       The sourcing ensures inputs are available, fresh, and ethically sourced.
 

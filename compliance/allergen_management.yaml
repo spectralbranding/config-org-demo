@@ -7,8 +7,32 @@ last_review: 2026-01-15
 next_review: 2027-01-15
 
 allergen_inventory:
+  # EU Regulation 1169/2011 Annex II — complete 14-allergen declaration
   # Consolidated from all product specs
+
   present_in_products:
+    - allergen: cereals_containing_gluten
+      eu_annex_ii_number: 1
+      sub_types:
+        - wheat:
+            sources:
+              - product: products/croissant.yaml
+                ingredient: wheat_flour
+                type: declared
+        - oats:
+            gluten_status: gluten_free_certified  # Oatly Barista is GF certified
+            sources:
+              - product: products/oat_latte.yaml
+                ingredient: oat_milk
+                type: declared
+
+    - allergen: eggs
+      eu_annex_ii_number: 3
+      sources:
+        - product: products/croissant.yaml
+          ingredient: egg_wash
+          type: declared
+
     - allergen: milk
       eu_annex_ii_number: 7
       sources:
@@ -20,28 +44,6 @@ allergen_inventory:
           type: declared
       also_cross_contamination_via:
         - shared_steam_wand (affects all steamed beverages)
-
-    - allergen: wheat (gluten)
-      eu_annex_ii_number: 1
-      sources:
-        - product: products/croissant.yaml
-          ingredient: wheat_flour
-          type: declared
-
-    - allergen: eggs
-      eu_annex_ii_number: 3
-      sources:
-        - product: products/croissant.yaml
-          ingredient: egg_wash
-          type: declared
-
-    - allergen: oats
-      eu_annex_ii_number: 1  # falls under cereals containing gluten
-      gluten_status: gluten_free_certified  # Oatly Barista is GF
-      sources:
-        - product: products/oat_latte.yaml
-          ingredient: oat_milk
-          type: declared
 
   cross_contamination_only:
     - allergen: tree_nuts
@@ -56,6 +58,52 @@ allergen_inventory:
       sources:
         - croissant_supplier_facility
       risk_level: low
+
+  not_present:
+    - allergen: crustaceans
+      eu_annex_ii_number: 2
+      status: not_present
+      note: no crustacean products in menu or facility
+
+    - allergen: fish
+      eu_annex_ii_number: 4
+      status: not_present
+      note: no fish products in menu or facility
+
+    - allergen: peanuts
+      eu_annex_ii_number: 5
+      status: not_present
+      note: no peanut products in menu; no shared equipment risk
+
+    - allergen: celery
+      eu_annex_ii_number: 9
+      status: not_present
+      note: no celery products in menu or facility
+
+    - allergen: mustard
+      eu_annex_ii_number: 10
+      status: not_present
+      note: no mustard products in menu or facility
+
+    - allergen: sesame
+      eu_annex_ii_number: 11
+      status: not_present
+      note: no sesame products in menu or facility
+
+    - allergen: sulphur_dioxide_and_sulphites
+      eu_annex_ii_number: 12
+      status: not_present
+      note: no wines, dried fruits, or sulphite-containing products
+
+    - allergen: lupin
+      eu_annex_ii_number: 13
+      status: not_present
+      note: no lupin flour or products in menu or facility
+
+    - allergen: molluscs
+      eu_annex_ii_number: 14
+      status: not_present
+      note: no mollusc products in menu or facility
 
 cross_contamination_matrix:
   description: >

@@ -38,7 +38,7 @@ ingredients:
       name: Boulangerie Schmidt GmbH
       country: Germany
     weight_per_unit_g: 70
-    cost_per_unit: 0.85
+    cost_per_unit: 0.78
     composition:
       # Supplier-declared ingredients
       wheat_flour: true
@@ -103,16 +103,16 @@ storage:
 
 cost:
   ingredients:
-    croissant_par_baked: 0.85
+    croissant_par_baked: 0.78
   consumables:
     bag: 0.00  # served on plate or in branded napkin
-  total_cogs: 0.85
-  currency: USD
+  total_cogs: 0.78
+  currency: EUR
 
 pricing:
-  price: 3.50
-  currency: USD
-  margin_pct: 75.7
+  price: 3.20
+  currency: EUR
+  margin_pct: 75.6
 
 modifiers:
   - id: warmed
@@ -124,6 +124,6 @@ modifiers:
       duration_s: 30
   - id: with_butter
     description: Served with 10g butter portion on side
-    price_adjustment: 0.30
-    cogs_adjustment: 0.08
+    price_adjustment: 0.28
+    cogs_adjustment: 0.07
     allergen_note: additional milk allergen from butter

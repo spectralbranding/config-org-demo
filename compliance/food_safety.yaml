@@ -29,6 +29,144 @@ prerequisite_programs:
     frequency: daily
     documentation: waste_log
 
+hazard_analysis:
+  # HACCP Principle 1: Conduct a hazard analysis
+  # Identifies all potential hazards at each process step
+
+  - id: ha_01
+    process_step: receiving_ingredients
+    hazards:
+      - type: biological
+        agent: pathogenic_bacteria (Salmonella, Listeria)
+        source: supplier contamination
+        severity: high
+        likelihood: low
+        significance: moderate
+        preventive_measure: supplier_approval_program (prp_01)
+        ccp: false  # controlled by PRP
+
+      - type: physical
+        agent: foreign_objects (glass, metal, plastic)
+        source: packaging damage
+        severity: moderate
+        likelihood: low
+        significance: low
+        preventive_measure: visual_inspection_on_receipt
+        ccp: false
+
+      - type: chemical
+        agent: pesticide_residues
+        source: agricultural inputs
+        severity: moderate
+        likelihood: low
+        significance: low
+        preventive_measure: supplier_certification (organic/direct_trade)
+        ccp: false
+
+  - id: ha_02
+    process_step: cold_storage
+    hazards:
+      - type: biological
+        agent: pathogenic_bacteria (Listeria_monocytogenes)
+        source: temperature_abuse
+        severity: high
+        likelihood: moderate
+        significance: high
+        preventive_measure: continuous_temperature_monitoring
+        ccp: true
+        ccp_reference: ccp_01
+
+  - id: ha_03
+    process_step: espresso_extraction
+    hazards:
+      - type: biological
+        agent: insufficient_pathogen_kill
+        source: low_brew_temperature
+        severity: low
+        likelihood: low
+        significance: low
+        preventive_measure: machine_PID_temperature_control
+        ccp: true
+        ccp_reference: ccp_02
+
+  - id: ha_04
+    process_step: milk_steaming
+    hazards:
+      - type: biological
+        agent: pathogenic_bacteria_survival
+        source: insufficient_heating
+        severity: moderate
+        likelihood: low
+        significance: low
+        preventive_measure: steam_to_65C_minimum
+        ccp: false  # controlled by preparation procedure
+
+      - type: chemical_allergen
+        agent: milk_protein_transfer
+        source: shared_steam_wand
+        severity: critical
+        likelihood: moderate
+        significance: high
+        preventive_measure: purge_and_wipe_between_uses
+        ccp: true
+        ccp_reference: ccp_05
+
+  - id: ha_05
+    process_step: bakery_finishing_and_display
+    hazards:
+      - type: biological
+        agent: Bacillus_cereus, Staphylococcus_aureus
+        source: time_temperature_abuse
+        severity: moderate
+        likelihood: moderate
+        significance: moderate
+        preventive_measure: 8h_max_display + discard_policy
+        ccp: true
+        ccp_reference: ccp_03
+
+      - type: physical
+        agent: foreign_objects
+        source: display_case_contamination
+        severity: low
+        likelihood: low
+        significance: low
+        preventive_measure: covered_display + dedicated_tongs
+        ccp: false
+
+  - id: ha_06
+    process_step: food_handling
+    hazards:
+      - type: biological
+        agent: cross_contamination (E_coli, norovirus)
+        source: inadequate_hand_hygiene
+        severity: high
+        likelihood: moderate
+        significance: high
+        preventive_measure: handwashing_protocol
+        ccp: true
+        ccp_reference: ccp_04
+
+  - id: ha_07
+    process_step: water_filtration
+    hazards:
+      - type: chemical
+        agent: chlorine, heavy_metals
+        source: municipal_water_supply
+        severity: low
+        likelihood: low
+        significance: low
+        preventive_measure: filtration_system + quarterly_testing (prp_03)
+        ccp: false
+
+      - type: biological
+        agent: Legionella
+        source: stagnant_water_in_pipes
+        severity: high
+        likelihood: low
+        significance: moderate
+        preventive_measure: daily_flushing + filter_replacement_schedule
+        ccp: false
+
 critical_control_points:
 
   - id: ccp_01

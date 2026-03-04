@@ -48,8 +48,8 @@ ingredients:
       name: Nordic Roasters GmbH
       origin_certification: direct_trade
     quantity_per_serving_g: 18.0
-    cost_per_kg: 23.00
-    cost_per_serving: 0.41
+    cost_per_kg: 21.16
+    cost_per_serving: 0.38
 
   - id: water
     type: filtered
@@ -85,26 +85,26 @@ allergens:
 
 cost:
   ingredients:
-    coffee_beans: 0.41
+    coffee_beans: 0.38
     water: 0.01
   consumables:
     cup: 0.00  # served in house demitasse
-  total_cogs: 0.42
-  currency: USD
+  total_cogs: 0.39
+  currency: EUR
 
 pricing:
-  price: 3.50
-  currency: USD
-  margin_pct: 88.0
+  price: 3.20
+  currency: EUR
+  margin_pct: 87.8
 
 modifiers:
   - id: triple
     description: Triple shot (adds second 18g extraction to the standard double)
-    price_adjustment: 1.50
+    price_adjustment: 1.40
     nutrition_adjustment:
       energy_kcal: 2
       caffeine_mg: 63
-    cogs_adjustment: 0.42
+    cogs_adjustment: 0.39
   - id: ristretto
     description: Shorter extraction (18g in, 22ml out, 20-25s)
     price_adjustment: 0.00
