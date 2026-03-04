@@ -8,6 +8,8 @@ made_in_house: false
 # TDD cascade cross-references
 satisfies_signal: [L1_ide_01, L1_eco_01]
 satisfies_experience: [L0_ide_01, L0_eco_01]
+satisfies_constraint: [L0_con_01, L0_con_02]
+satisfies_commitment: [L0_com_02]
 
 description: >
   Classic French-style butter croissant, supplier-sourced from an

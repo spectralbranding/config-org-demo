@@ -3,6 +3,8 @@ version: 1.0.0
 # TDD cascade cross-references
 satisfies_signal: [L1_soc_01, L1_soc_03, L1_ide_02]
 satisfies_experience: [L0_soc_01, L0_soc_02, L0_soc_04, L0_ide_03]
+satisfies_constraint: [L0_con_04]
+satisfies_commitment: [L0_com_03]
 
 description: >
   Internal communications configuration for Spectra Coffee. Defines how

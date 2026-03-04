@@ -7,6 +7,8 @@ available: true
 # TDD cascade cross-references
 satisfies_signal: [L1_nar_01, L1_tem_02, L1_ide_02, L1_eco_01, L1_exp_01, L1_exp_03]
 satisfies_experience: [L0_nar_01, L0_nar_02, L0_tem_03, L0_ide_02, L0_exp_01, L0_exp_04]
+satisfies_constraint: [L0_con_01, L0_con_02]
+satisfies_commitment: [L0_com_01, L0_com_03]
 
 description: >
   Single-origin Ethiopia Yirgacheffe, medium roast. Bright citrus acidity

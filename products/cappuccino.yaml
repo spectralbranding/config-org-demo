@@ -7,6 +7,8 @@ available: true
 # TDD cascade cross-references
 satisfies_signal: [L1_eco_01, L1_exp_01]
 satisfies_experience: [L0_eco_01, L0_exp_01]
+satisfies_constraint: [L0_con_01, L0_con_02]
+satisfies_commitment: [L0_com_01]
 
 description: >
   Classic Italian-style cappuccino. Equal thirds espresso, steamed milk,

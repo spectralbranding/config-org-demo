@@ -3,6 +3,7 @@ version: 1.0.0
 # TDD cascade cross-references
 satisfies_signal: [L1_tem_02, L1_exp_01]
 satisfies_experience: [L0_tem_03, L0_exp_01]
+satisfies_constraint: [L0_con_01, L0_con_03]
 
 description: >
   Equipment maintenance schedule for Spectra Coffee flagship location.

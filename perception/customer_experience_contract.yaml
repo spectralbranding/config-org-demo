@@ -182,6 +182,100 @@ experience_contract:
         assertion: "Regular customers feel recognized as individuals"
         proxy_indicator: "Staff remember orders or names for daily visitors"
 
+# --- Constraint Contracts (L0) ---
+# Regulatory and legal requirements that are first-class acceptance tests.
+# These are NOT customer-derived but are equally binding.
+
+constraint_contracts:
+
+  food_safety:
+    id: L0_con_01
+    source: "EU Regulation 852/2004 (General Food Hygiene)"
+    type: constraint
+    requires:
+      - "HACCP plan documented and implemented"
+      - "Critical control points monitored continuously"
+      - "Corrective actions defined for all CCPs"
+      - "Temperature logs maintained for all cold/hot storage"
+    validated_by: "compliance/food_safety.yaml"
+    validation: "CI/CD + quarterly external audit"
+
+  allergen_declaration:
+    id: L0_con_02
+    source: "EU Regulation 1169/2011 Annex II"
+    type: constraint
+    requires:
+      - "All 14 EU allergens assessed per product"
+      - "Cross-contamination risks documented per equipment"
+      - "Staff trained in allergen awareness (80% pass rate)"
+      - "Customer communication protocol for dietary needs"
+    validated_by: "compliance/allergen_management.yaml"
+    validation: "CI/CD on every product change"
+
+  workplace_safety:
+    id: L0_con_03
+    source: "EU Directive 89/391/EEC (Workplace Safety)"
+    type: constraint
+    requires:
+      - "Risk assessment per workstation"
+      - "PPE requirements documented (burns, slips)"
+      - "Incident reporting procedure defined"
+    validated_by: "processes/opening_closing.yaml (safety checks)"
+    validation: "CI/CD + annual external review"
+
+  data_protection:
+    id: L0_con_04
+    source: "EU GDPR (Regulation 2016/679)"
+    type: constraint
+    requires:
+      - "Customer data handling procedures documented"
+      - "Staff PII training completed"
+      - "Data retention policy defined"
+    validated_by: "processes/internal_communications.yaml"
+    validation: "Annual review"
+
+# --- Commitment Contracts (L0) ---
+# Self-imposed obligations that the organization voluntarily upholds.
+# These emit ideological signals and are testable like any other L0 contract.
+
+commitment_contracts:
+
+  ethical_sourcing:
+    id: L0_com_01
+    source: "organizational values (organization.yaml)"
+    type: commitment
+    requires:
+      - "All coffee direct-trade or equivalent certification"
+      - "Minimum 25% price premium above commodity for suppliers"
+      - "Annual origin visit to primary coffee supplier"
+    satisfies_signal:
+      - "L1_ide_02"
+    validation: "Supplier contract review (annual)"
+
+  sustainability:
+    id: L0_com_02
+    source: "organizational values (organization.yaml)"
+    type: commitment
+    requires:
+      - "Takeaway packaging 100% compostable or reusable"
+      - "Zero food waste to landfill (compost or donate)"
+      - "Renewable electricity supplier"
+    satisfies_signal:
+      - "L1_ide_01"
+    validation: "Quarterly waste audit + energy bill review"
+
+  transparency:
+    id: L0_com_03
+    source: "organizational values (organization.yaml)"
+    type: commitment
+    requires:
+      - "Ingredient sourcing information available to customers on request"
+      - "Pricing structure visible and honest (no hidden fees)"
+      - "Operational specification publishable at Level 2+ openness"
+    satisfies_signal:
+      - "L1_ide_03"
+    validation: "Customer inquiry test (mystery shopping)"
+
 # --- Aggregate Metrics ---
 
 satisfaction_targets:
