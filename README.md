@@ -1,5 +1,8 @@
 # Spectra Coffee
 
+[![CI](https://github.com/spectralbranding/orgschema-demo/actions/workflows/ci.yml/badge.svg)](https://github.com/spectralbranding/orgschema-demo/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 A complete coffee shop business specified entirely as configuration.
 
 Spectra Coffee is a reference implementation of the [Organizational Schema Theory](https://github.com/spectralbranding/orgschema-framework) framework. It demonstrates that an entire business — products, brand identity, compliance, pricing, nutrition, allergens — can be described as machine-readable, version-controlled YAML specifications with no ambiguity and no prose-only documentation.
