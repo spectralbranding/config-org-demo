@@ -36,6 +36,5 @@ orgschema-demo/
 
 ## Related
 
-- Development workspace: `viberesearch/orgschema` (private)
 - Framework repo: `spectralbranding/orgschema-framework` (public)
 - SBT framework: `spectralbranding/sbt-framework` (public)
